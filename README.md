@@ -15,7 +15,7 @@ We can use [annotation](https://help.syncfusion.com/wpf/charts/annotations) inst
 #### Path too long exception
 If you are facing path too long exception when building this example project, close Visual Studio and rename the repository to short and build the project.
 
-![Visualize Billionaire's Chart Dashboard Using WPF Chart Controls](https://github.com/SyncfusionExamples/Creating-billionaires-chart-dashboard-using-WPF-chart-controls)
+![Chart Dashboard](https://github.com/SyncfusionExamples/Creating-billionaires-chart-dashboard-using-WPF-chart-controls/assets/102796134/14b3e1f4-56e8-409f-bcee-682b1c084fb8)
 
 For a step-by-step procedure, refer to the [Visualize WPF Chart Dashboard for billionaires in 2023 blog]().
 
