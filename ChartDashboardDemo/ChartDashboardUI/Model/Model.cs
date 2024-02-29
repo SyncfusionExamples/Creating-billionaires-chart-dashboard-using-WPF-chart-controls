@@ -2,13 +2,13 @@
 {
     public class Model
     {
-        public double Rank { get; set; }
-
         public string BillionaireName { get; set; }
 
         public double BillionaireNetWorth { get; set; } 
 
         public string BillionaireCountry { get; set; } 
+
+        public double BillionaireAge { get; set; } 
         
         public string Category { get; set; }
 
@@ -26,12 +26,13 @@
             CountryBillionaireCount = countryBillionaireCount;
         }
 
-        public Model(double rank,string name,double networth, string country)
+        public Model(string name,double networth,double age,string country)
         {
-            Rank = rank;
             BillionaireName = name;
             BillionaireNetWorth = networth;
+            BillionaireAge = age;
             BillionaireCountry = country;
+          
         }
     }
 }

@@ -1,6 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls.Primitives;
+
+using Syncfusion.UI.Xaml.Charts;
 
 namespace ChartDashboardUI
 {
@@ -12,6 +16,7 @@ namespace ChartDashboardUI
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void ChartTrackBallBehavior_PositionChanged(object sender, Syncfusion.UI.Xaml.Charts.PositionChangedEventArgs e)
@@ -20,19 +25,18 @@ namespace ChartDashboardUI
 
             foreach (var item in currentDetails)
             {
-                var name = item.ValueX;
-
-                var billionaire = viewModel.BillionairesList.FirstOrDefault(x => x.BillionaireName == name);
+                var XValue = item.ValueX;
+               
+                var billionaire = viewModel.BillionairesList.FirstOrDefault(x => x.BillionaireAge.ToString() == XValue);
                 if (billionaire != null)
                 {
-                    rank.Text = billionaire.Rank.ToString();
                     billionaryName.Text = billionaire.BillionaireName;
                     netWorth.Text = string.Format("${0}B", billionaire.BillionaireNetWorth);
+                    age.Text = billionaire.BillionaireAge.ToString();
                     country.Text = billionaire.BillionaireCountry;
                 }
             }
         }
-
     }
 }
 

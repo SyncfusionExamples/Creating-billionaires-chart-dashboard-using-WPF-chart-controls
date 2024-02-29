@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Reflection;
 
+using Syncfusion.UI.Xaml.Charts;
+
 namespace ChartDashboardUI
 {
     public class ViewModel
@@ -51,9 +53,9 @@ namespace ChartDashboardUI
                 foreach (var items in lines)
                 {
                     string[] data = items.Split(',');
-                    double rank = Convert.ToDouble(data[0]);
                     double networth = Convert.ToDouble(data[2]);
-                    BillionairesList.Add(new Model(rank, data[1], networth, data[4]));
+                    double age = Convert.ToDouble(data[3]);
+                    BillionairesList.Add(new Model(data[1], networth,age, data[4]));
                 }
 
             }

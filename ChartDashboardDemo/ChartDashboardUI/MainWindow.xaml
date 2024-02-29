@@ -6,7 +6,7 @@
         xmlns:chart="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
         xmlns:local="clr-namespace:ChartDashboardUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" >
 
     <Window.DataContext>
         <local:ViewModel x:Name="viewModel"/>
@@ -14,8 +14,8 @@
 
     <Grid Background="Black" Margin="5,10,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -26,131 +26,128 @@
 
         <TextBlock  Grid.Row="0" Grid.ColumnSpan="2"
                     Text="World's Billionaires List 2023"
-                    FontSize="16"
-                    Foreground="#fff2cc"
+                    FontSize="30"
+                    Foreground="#ffbf00"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Margin="0,5,0,0"/>
-
-        <Border BorderBrush="#fff2cc" BorderThickness="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="30,10,30,0">
+        <Border BorderBrush="#fff2cc" BorderThickness="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="50,20,0,0">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Rank" Grid.Row="0" Grid.Column="0" Foreground="#fff2cc" Margin="10,0,0,0"/>
-                <TextBlock Text="Name" Grid.Row="0" Grid.Column="1" Foreground="#fff2cc" Margin="230,0,0,0"/>
-                <TextBlock Text="NetWorth" Grid.Row="0" Grid.Column="2" Foreground="#fff2cc" Margin="230,0,0,0" />
-                <TextBlock Text="Country" Grid.Row="0" Grid.Column="3" Foreground="#fff2cc" Margin="230,0,0,0" />
-                <TextBlock x:Name="rank" Text="{Binding BillionairesList[0].Rank}" Grid.Row="1" Grid.Column="0" Foreground="#fff2cc" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,0,0,0"/>
-                <TextBlock x:Name="billionaryName" Text="{Binding BillionairesList[0].BillionaireName}" Grid.Row="1" Grid.Column="1" Foreground="#fff2cc" HorizontalAlignment="Center" Margin="230,0,0,0"/>
-                <TextBlock x:Name="netWorth" Text="{Binding BillionairesList[0].BillionaireNetWorth, StringFormat={}${0}B}" Grid.Row="1" Grid.Column="2"  Foreground="#fff2cc" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="230,0,0,0"/>
-                <TextBlock x:Name="country" Text="{Binding BillionairesList[0].BillionaireCountry}" Grid.Row="1" Grid.Column="3" Foreground="#fff2cc" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="230,0,0,0"/>
+                <TextBlock Text="Name" Grid.Row="0" Grid.Column="0" FontSize="15" FontWeight="Bold" Foreground="White" Margin="0,5,0,0" HorizontalAlignment="Center"/>
+                <TextBlock Text="NetWorth" Grid.Row="0" Grid.Column="1" FontSize="15" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"  Margin="0,5,0,0" />
+                <TextBlock Text="Age" Grid.Row="0" Grid.Column="2" FontSize="15" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"  Margin="0,5,0,0" />
+                <TextBlock Text="Country" Grid.Row="0" Grid.Column="3" FontSize="15" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"  Margin="0,5,0,0" />
+                <TextBlock x:Name="billionaryName" Text="{Binding BillionairesList[0].BillionaireName}" FontWeight="Bold" FontSize="22" Grid.Row="1" Grid.Column="0" Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="netWorth" Text="{Binding BillionairesList[0].BillionaireNetWorth, StringFormat={}${0}B}" FontWeight="Bold" FontSize="22" Grid.Row="1" Grid.Column="1"  Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="age" Text="{Binding BillionairesList[0].BillionaireAge}" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="22" Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="country" Text="{Binding BillionairesList[0].BillionaireCountry}" FontWeight="Bold" FontSize="22" Grid.Row="1" Grid.Column="3" Foreground="White" HorizontalAlignment="Center"/>
             </Grid>
         </Border>
 
 
         <!-- ######## World's Billionaires List 2023 ########-->
-        <chart:SfChart Grid.Row="2" Grid.ColumnSpan="2" Margin="10,0,0,0">
-            <chart:SfChart.Resources>
-                <DataTemplate x:Key="trackballLabelTemplate">
-                    <Border CornerRadius="5" 
+        <chart:SfChart Grid.Row="2" Grid.ColumnSpan="2" Margin="10,10,0,0">
+                <chart:SfChart.Resources>
+                    <DataTemplate x:Key="trackballLabelTemplate">
+                        <Border CornerRadius="5" 
                             BorderThickness="1" 
                             Background=" #fff2cc" Margin="8">
-                        <StackPanel>
-                            <TextBlock Foreground="Black" FontWeight="Bold" Text="{Binding ValueX}"/>
-                            <TextBlock Foreground="Black" Text="{Binding ValueY, StringFormat={}${0}B}"/>
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
+                            <StackPanel>
+                                <TextBlock Foreground="Black" FontWeight="Bold" Text="{Binding ValueX}" Margin="3"/>
+                                <TextBlock Foreground="Black" Text="{Binding ValueY, StringFormat={}${0}B}" Margin="3,0,3,0 "/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+
+                <Style TargetType="Line" x:Key="axisLineStyle">
+                    <Setter Property="Stroke" Value="Black" />
+                </Style>
             </chart:SfChart.Resources>
 
-            <chart:SfChart.Annotations>
-                <chart:TextAnnotation Text="The world's billionaires are ranked based on " Foreground="#999999" CoordinateUnit="Pixel" X1="700" Y1="30"/>
-                <chart:TextAnnotation Text="their net worth. Here, the details of the " Foreground="#999999"  CoordinateUnit="Pixel" X1="700" Y1="50" Margin="0,5,0,0"/>
-                <chart:TextAnnotation Text="2023 billionaires are listed." Foreground="#999999"  CoordinateUnit="Pixel" X1="700" Y1="70"/>
-            </chart:SfChart.Annotations>
+                <chart:SfChart.Annotations>
+                    <chart:TextAnnotation Text="The world's billionaires are ranked based on" FontSize="15" Foreground="White" CoordinateUnit="Pixel" X1="700" Y1="30"/>
+                <chart:TextAnnotation Text="their net worth. Here,the ages and net worth" FontSize="15" Foreground="White"  CoordinateUnit="Pixel" X1="700" Y1="50" Margin="0,5,0,0"/>
+                <chart:TextAnnotation Text="of billionaires in 2023 are listed." Foreground="White" FontSize="15"  CoordinateUnit="Pixel" X1="700" Y1="70"/>
+                </chart:SfChart.Annotations>
 
             <chart:SfChart.PrimaryAxis>
-                <chart:CategoryAxis Visibility="Hidden" ShowGridLines="False"/>
-            </chart:SfChart.PrimaryAxis>
-            <chart:SfChart.SecondaryAxis>
-                <chart:NumericalAxis Header="Net Worth (in billion)" FontSize="14"
-                                     ShowGridLines="False"
-                                     LabelRotationAngle="-45">
+                <chart:NumericalAxis Header="Age" FontSize="14" TickLineSize="0" ShowGridLines="False"
+                                     PlotOffset="10">
                     <chart:NumericalAxis.LabelStyle>
-                        <chart:LabelStyle Foreground="#fff2cc"/>
-                    </chart:NumericalAxis.LabelStyle>
+                          <chart:LabelStyle Foreground="#fff2cc"/>
+                     </chart:NumericalAxis.LabelStyle>
                     <chart:NumericalAxis.HeaderStyle>
-                        <chart:LabelStyle Foreground="#fff2cc"/>
+                         <chart:LabelStyle Foreground="#fff2cc"/>
                     </chart:NumericalAxis.HeaderStyle>
                 </chart:NumericalAxis>
-            </chart:SfChart.SecondaryAxis>
+            </chart:SfChart.PrimaryAxis>
+                <chart:SfChart.SecondaryAxis>
+                    <chart:NumericalAxis Header="Net Worth (in billion)" FontSize="14"
+                                     ShowGridLines="False"
+                                     LabelRotationAngle="-45">
+                        <chart:NumericalAxis.LabelStyle>
+                            <chart:LabelStyle Foreground="#fff2cc"/>
+                        </chart:NumericalAxis.LabelStyle>
+                        <chart:NumericalAxis.HeaderStyle>
+                            <chart:LabelStyle Foreground="#fff2cc"/>
+                        </chart:NumericalAxis.HeaderStyle>
+                    </chart:NumericalAxis>
+                </chart:SfChart.SecondaryAxis>
 
             <chart:SfChart.Behaviors>
                 <chart:ChartZoomPanBehavior ZoomMode="X"/>
-                <chart:ChartTrackBallBehavior PositionChanged="ChartTrackBallBehavior_PositionChanged"/>
+                <chart:ChartTrackBallBehavior LabelDisplayMode="NearestPoint" PositionChanged="ChartTrackBallBehavior_PositionChanged"/>
             </chart:SfChart.Behaviors>
 
-            <chart:LineSeries ItemsSource="{Binding BillionairesList}" 
-                              XBindingPath="BillionaireName"
-                              YBindingPath="BillionaireNetWorth" 
-                              TrackBallLabelTemplate="{StaticResource trackballLabelTemplate}"
-                              Interior=" #ffbf00">
-            </chart:LineSeries>
-        </chart:SfChart>
+            <chart:ScatterSeries x:Name="scatterSeries" ItemsSource="{Binding BillionairesList}"
+                                  XBindingPath="BillionaireAge"
+                                  YBindingPath="BillionaireNetWorth"
+                                  ScatterHeight="10" ScatterWidth="10" 
+                                  TrackBallLabelTemplate="{StaticResource trackballLabelTemplate}"
+                                  Palette="SandyBeach">
+            </chart:ScatterSeries>
+            </chart:SfChart>
 
 
-        <!--######## Top 5 categories billionaires chart ########-->
-        <chart:SfChart Grid.Row="3" Grid.Column="0" Margin="10,0,0,0">
+        <!--######## Top 5 billionaires categories chart ########-->
+        <chart:SfChart Grid.Row="3" Grid.Column="0" Margin="10,10,0,0">
             <chart:SfChart.Header>
-                <TextBlock Text="Top 5 Categories with the Most Billionaires"
-                           Foreground="#fff2cc"
-                           FontSize="16"/>
+                <TextBlock Text="Top 5 Categories based on rank"
+                           Foreground="White"
+                           FontSize="20"/>
             </chart:SfChart.Header>
 
             <chart:SfChart.Resources>
-                <Style TargetType="Line" x:Key="gridLineStyle">
-                    <Setter Property="StrokeThickness" Value="1"/>
-                    <Setter Property="Stroke" Value="DarkGray"/>
-                    <Setter Property="StrokeDashArray" Value="3,3"/>
-                </Style>
                 <Style TargetType="Line" x:Key="axisLineStyle">
                     <Setter Property="Stroke" Value="Black" />
                 </Style>
             </chart:SfChart.Resources>
 
             <chart:SfChart.PrimaryAxis>
-                <chart:CategoryAxis Header="Category" FontSize="14"
+                <chart:CategoryAxis FontSize="14"
                                     AxisLineStyle="{StaticResource axisLineStyle}"
                                     ShowGridLines="False">
                     <chart:CategoryAxis.LabelStyle>
                         <chart:LabelStyle Foreground="#fff2cc"/>
                     </chart:CategoryAxis.LabelStyle>
-                    <chart:CategoryAxis.HeaderStyle>
-                        <chart:LabelStyle Foreground="#fff2cc"/>
-                    </chart:CategoryAxis.HeaderStyle>
                 </chart:CategoryAxis>
             </chart:SfChart.PrimaryAxis>
 
             <chart:SfChart.SecondaryAxis>
-                <chart:NumericalAxis Header="Total Billionaires" FontSize="14"
-                                     Interval="200"
-                                     MajorGridLineStyle="{StaticResource gridLineStyle}"
-                                     AxisLineStyle="{StaticResource axisLineStyle}">
-                    <chart:NumericalAxis.LabelStyle>
-                        <chart:LabelStyle Foreground="#fff2cc"/>
-                    </chart:NumericalAxis.LabelStyle>
-                    <chart:NumericalAxis.HeaderStyle>
-                        <chart:LabelStyle Foreground="#fff2cc"/>
-                    </chart:NumericalAxis.HeaderStyle>
+                <chart:NumericalAxis ShowGridLines="False"
+                                     AxisLineStyle="{StaticResource axisLineStyle}"
+                                     TickLineSize="0">
                 </chart:NumericalAxis>
             </chart:SfChart.SecondaryAxis>
 
@@ -173,7 +170,7 @@
                 <DataTemplate x:Key="dataLabelTemplate">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Item.Country}" Foreground="#fff2cc" FontSize="14"/>
-                        <TextBlock Text=" : " Foreground="#fff2cc" FontSize="14"/>
+                        <TextBlock Text=": " Foreground="#fff2cc" FontSize="14"/>
                         <TextBlock Text="{Binding Item.CountryBillionaireCount}" Foreground="#fff2cc" FontSize="14"/>
                     </StackPanel>
                 </DataTemplate>
@@ -187,9 +184,9 @@
                 <chart:DoughnutSeries.CenterView>
                     <ContentControl>
                         <StackPanel Orientation="Vertical">
-                            <TextBlock  FontSize="16" Text="Top 5 " VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Center" Foreground="#fff2cc"/>
-                            <TextBlock  FontSize="16" Text="Countries with" VerticalAlignment="Center" Margin="0,0,0,8" HorizontalAlignment="Center" Foreground="#fff2cc"/>
-                            <TextBlock  FontSize="16" Text="Billionaires" VerticalAlignment="Center" Margin="0,0,0,8" HorizontalAlignment="Center" Foreground="#fff2cc"/>
+                            <TextBlock  FontSize="18" Text="Top 5 " VerticalAlignment="Center" Margin="0,0,5,0" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock  FontSize="18" Text="Countries with" VerticalAlignment="Center" Margin="0,0,0,8" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock  FontSize="18" Text="Billionaires" VerticalAlignment="Center" Margin="0,0,0,8" HorizontalAlignment="Center" Foreground="White"/>
                         </StackPanel>
                     </ContentControl>
                 </chart:DoughnutSeries.CenterView>
